@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Attendance_System</string>
+    <string name="app_logo">Presko application logo</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="greetings">Greetings, Iskolar ng Bayan!</string>
+    <string name="student">Student</string>
+    <string name="faculty">Faculty</string>
+    <string name="admin">Admin</string>
+    <string name="no_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign Up</string>
+</resources>

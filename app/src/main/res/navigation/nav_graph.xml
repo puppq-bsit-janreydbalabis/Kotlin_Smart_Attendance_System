@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/registerFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.attendance_system.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment2"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_professorHomeFragment"
+            app:destination="@id/professorHomeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_studentHomeFragment"
+            app:destination="@id/studentHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.attendance_system.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/professorHomeFragment"
+        android:name="com.example.attendance_system.ProfessorHomeFragment"
+        android:label="fragment_professor_home"
+        tools:layout="@layout/fragment_professor_home" >
+        <action
+            android:id="@+id/action_professorHomeFragment_to_addSubjectFragment"
+            app:destination="@id/addSubjectFragment" />
+        <action
+            android:id="@+id/action_professorHomeFragment_to_subjectDetailsFragment"
+            app:destination="@id/subjectDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentHomeFragment"
+        android:name="com.example.attendance_system.StudentHomeFragment"
+        android:label="fragment_student_home"
+        tools:layout="@layout/fragment_student_home" >
+        <action
+            android:id="@+id/action_studentHomeFragment_to_subjectDetailsFragment"
+            app:destination="@id/subjectDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addSubjectFragment"
+        android:name="com.example.attendance_system.AddSubjectFragment"
+        android:label="fragment_add_subject"
+        tools:layout="@layout/fragment_add_subject" />
+    <fragment
+        android:id="@+id/subjectDetailsFragment"
+        android:name="com.example.attendance_system.SubjectDetailsFragment"
+        android:label="fragment_subject_details"
+        tools:layout="@layout/fragment_subject_details" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.attendance_system.MainActivity"
+        android:label="activity_home_screen"
+        tools:layout="@layout/activity_home_screen" />
+    <activity
+        android:id="@+id/loadingActivity"
+        android:name="com.example.attendance_system.LoadingActivity"
+        android:label="LoadingActivity" />
+</navigation>
