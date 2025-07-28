@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Attendance_System</string>
+    <string name="app_name">Attendance System</string>
     <string name="app_logo">Presko application logo</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="greetings">Greetings, Iskolar ng Bayan!</string>
@@ -9,4 +9,23 @@
     <string name="admin">Admin</string>
     <string name="no_account">Don\'t have an account?</string>
     <string name="sign_up">Sign Up</string>
+    
+    <!-- Login text variations -->
+    <string name="student_login_title">Student Login</string>
+    <string name="faculty_login_title">Faculty Login</string>
+    <string name="admin_login_title">Admin Login</string>
+    
+    <string name="student_id_hint">Student Number</string>
+    <string name="professor_id_hint">Professor NO:</string>
+    <string name="admin_id_hint">Admin ID</string>
+    
+    <!-- Registration form strings -->
+    <string name="back_button">Back</string>
+    <string name="create_account_title">Create an Account</string>
+    <string name="full_name_hint">Full Name</string>
+    <string name="pup_id_hint">PUP ID Number</string>
+    <string name="password_hint">Password</string>
+    <string name="confirm_password_hint">Re-enter Password</string>
+    <string name="select_role">Select Role</string>
+    <string name="sign_up_button">SIGN UP</string>
 </resources>

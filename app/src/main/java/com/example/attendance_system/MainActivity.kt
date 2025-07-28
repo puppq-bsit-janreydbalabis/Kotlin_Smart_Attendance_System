@@ -1,34 +1,53 @@
 package com.example.attendance_system
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import com.example.attendance_system.databinding.ActivityMainBinding
 
-// ✅ ADD THIS CLASS DEFINITION BACK
 class MainActivity : AppCompatActivity() {
 
-    // Your onCreate function goes inside the class
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        installSplashScreen()
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        // Launch a coroutine that won't block the UI thread
-        lifecycleScope.launch {
-            // Run the slow function on a background thread (Dispatchers.IO)
-            val userData = withContext(Dispatchers.IO) {
-                // loadUserDataFromDatabase() // This runs in the background
-            }
-            // The coroutine comes back to the main thread automatically
-            // to safely update the UI
-            // setupUIWithData(userData)
-        }
+        setupClickListeners()
     }
 
-    // You can add other functions for your activity here
+    private fun setupClickListeners() {
+        // Set click listener for student button
+        binding.studentButton.setOnClickListener {
+            val intent = Intent(this, NavigationActivity::class.java)
+            intent.putExtra("destination", "login")
+            intent.putExtra("userType", "student")
+            startActivity(intent)
+        }
 
+        // Set click listener for faculty button
+        binding.facultyButton.setOnClickListener {
+            val intent = Intent(this, NavigationActivity::class.java)
+            intent.putExtra("destination", "login")
+            intent.putExtra("userType", "faculty")
+            startActivity(intent)
+        }
+
+        // Set click listener for admin button
+        binding.adminButton.setOnClickListener {
+            val intent = Intent(this, NavigationActivity::class.java)
+            intent.putExtra("destination", "login")
+            intent.putExtra("userType", "admin")
+            startActivity(intent)
+        }
+
+        // Set click listener for sign up text
+        binding.signUpText.setOnClickListener {
+            val intent = Intent(this, NavigationActivity::class.java)
+            intent.putExtra("destination", "register")
+            intent.putExtra("userType", "student")
+            startActivity(intent)
+        }
+    }
 }

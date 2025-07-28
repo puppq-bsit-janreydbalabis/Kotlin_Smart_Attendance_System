@@ -2,4 +2,27 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <!-- Theme colors -->
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    
+    <!-- App specific colors -->
+    <color name="red_primary">#B71C1C</color>
+    <color name="red_dark">#8B0000</color>
+    
+    <!-- Splash screen colors -->
+    <color name="splash_background">#F5F5F5</color>
+    
+    <!-- Text colors -->
+    <color name="text_primary">#000000</color>
+    <color name="text_hint">#888888</color>
+    <color name="text_white">#FFFFFF</color>
+    
+    <!-- Input field colors -->
+    <color name="input_background">#FFFFFF</color>
+    <color name="input_border">#E0E0E0</color>
+    <color name="input_border_focused">#B71C1C</color>
 </resources>
