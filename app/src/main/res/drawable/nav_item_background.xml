@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <layer-list>
+            <!-- Background -->
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="#1A2196F3" />
+                    <corners android:radius="8dp" />
+                </shape>
+            </item>
+            <!-- Left indicator bar -->
+            <item android:gravity="start">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/nav_item_selected" />
+                    <size android:width="4dp" android:height="0dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#1A1976D2" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#1A42A5F5" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+</selector> 

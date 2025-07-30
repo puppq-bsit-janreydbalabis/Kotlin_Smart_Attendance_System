@@ -25,4 +25,27 @@
     <color name="input_background">#FFFFFF</color>
     <color name="input_border">#E0E0E0</color>
     <color name="input_border_focused">#B71C1C</color>
+    
+    <!-- Navigation colors -->
+    <color name="dark_gray">#2C2C2C</color>
+    <color name="light_gray">#9E9E9E</color>
+    <color name="light_green">#4CAF50</color>
+    <color name="dark_green">#388E3C</color>
+    
+    <!-- Professional Navigation Colors -->
+    <color name="nav_item_normal">#B3FFFFFF</color>
+    <color name="nav_item_selected">#2196F3</color>
+    <color name="nav_item_pressed">#1976D2</color>
+    <color name="nav_item_focused">#42A5F5</color>
+    <color name="nav_background">#1A1A1A</color>
+    <color name="nav_divider">#424242</color>
+    <color name="nav_header_overlay">#66000000</color>
+    
+    <!-- Dialog colors -->
+    <color name="dialog_positive_button">#2196F3</color>
+    <color name="dialog_negative_button">#757575</color>
+    <color name="dialog_danger_button">#F44336</color>
+    <color name="dialog_text_primary">#212121</color>
+    <color name="dialog_text_secondary">#757575</color>
+    <color name="dialog_background">#FFFFFF</color>
 </resources>

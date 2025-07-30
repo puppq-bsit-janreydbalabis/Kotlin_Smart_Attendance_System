@@ -65,6 +65,7 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/rounded_button_background"
             android:text="@string/student"
+            android:textAllCaps="false"
             android:textColor="#C62828"
             app:backgroundTint="@null" />
 
@@ -75,6 +76,7 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/rounded_button_background"
             android:text="@string/faculty"
+            android:textAllCaps="false"
             android:textColor="#C62828"
             app:backgroundTint="@null" />
 
@@ -84,6 +86,7 @@
             android:layout_height="50dp"
             android:background="@drawable/rounded_button_background"
             android:text="@string/admin"
+            android:textAllCaps="false"
             android:textColor="#C62828"
             app:backgroundTint="@null" />
     </LinearLayout>

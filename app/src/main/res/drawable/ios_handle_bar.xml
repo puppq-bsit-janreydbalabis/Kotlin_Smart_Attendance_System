@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    
+    <!-- Rounded corners for iOS-style handle -->
+    <corners android:radius="2.5dp" />
+    
+    <!-- iOS-style handle color -->
+    <solid android:color="#D1D5DB" />
+    
+    <!-- Subtle shadow -->
+    <stroke
+        android:width="0.5dp"
+        android:color="#E5E7EB" />
+
+</shape> 

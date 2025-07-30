@@ -1,14 +1,18 @@
 package com.example.attendance_system
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.example.attendance_system.databinding.FragmentLoginBinding
+import android.widget.TextView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -128,30 +132,101 @@ class LoginFragment : Fragment() {
     }
 
     private fun performLogin(userNumber: String, password: String, userType: String) {
-        // For now, using Firebase Auth for all types
-        // You can implement different authentication logic for each user type
-        auth.signInWithEmailAndPassword(userNumber, password)
-            .addOnSuccessListener {
-                val message = when (userType) {
-                    "faculty" -> "Professor login successful!"
-                    "admin" -> "Admin login successful!"
-                    else -> "Student login successful!"
-                }
-                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
-                
-                // Navigate to appropriate home screen based on user type
-                when (userType) {
-                    "faculty" -> findNavController().navigate(R.id.action_loginFragment_to_professorHomeFragment)
-                    "admin" -> {
-                        // Navigate to admin home when available
-                        Toast.makeText(context, "Admin dashboard coming soon", Toast.LENGTH_SHORT).show()
+        // Show loading dialog
+        val loadingDialog = AlertDialog.Builder(requireContext(), R.style.CustomDialogTheme)
+            .setView(R.layout.loading_dialog)
+            .setCancelable(false)
+            .create()
+        loadingDialog.show()
+
+        // Set the correct text for login
+        val loadingTitle = loadingDialog.findViewById<TextView>(R.id.loadingTitle)
+        val loadingSubtitle = loadingDialog.findViewById<TextView>(R.id.loadingSubtitle)
+        loadingTitle?.text = "Logging in..."
+        loadingSubtitle?.text = "Please wait while we authenticate you"
+
+        // Simulate login process with delay
+        Handler(Looper.getMainLooper()).postDelayed({
+            try {
+                // Check for default test users first
+                if (userNumber == "123" && password == "123") {
+                    val message = when (userType) {
+                        "faculty" -> "Professor login successful! (Test User)"
+                        "admin" -> "Admin login successful! (Test User)"
+                        else -> "Student login successful! (Test User)"
                     }
-                    else -> findNavController().navigate(R.id.action_loginFragment_to_studentHomeFragment)
+                    
+                    // Save login session
+                    val sessionManager = SessionManager(requireContext())
+                    val userEmail = when (userType) {
+                        "faculty" -> "professor@example.edu"
+                        "admin" -> "admin@example.edu"
+                        else -> "student@example.edu"
+                    }
+                    sessionManager.saveLoginSession(userType, userNumber, userEmail)
+                    
+                    // Close loading dialog
+                    loadingDialog.dismiss()
+                    
+                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+                    
+                    // Navigate to appropriate home screen based on user type
+                    when (userType) {
+                        "faculty" -> findNavController().navigate(R.id.action_loginFragment_to_professorHomeFragment)
+                        "admin" -> {
+                            // Navigate to admin home when available
+                            Toast.makeText(context, "Admin dashboard coming soon", Toast.LENGTH_SHORT).show()
+                        }
+                        else -> findNavController().navigate(R.id.action_loginFragment_to_studentHomeFragment)
+                    }
+                    return@postDelayed
                 }
+                
+                // For now, using Firebase Auth for all types
+                // You can implement different authentication logic for each user type
+                auth.signInWithEmailAndPassword(userNumber, password)
+                    .addOnSuccessListener {
+                        val message = when (userType) {
+                            "faculty" -> "Professor login successful!"
+                            "admin" -> "Admin login successful!"
+                            else -> "Student login successful!"
+                        }
+                        
+                        // Save login session
+                        val sessionManager = SessionManager(requireContext())
+                        val userEmail = when (userType) {
+                            "faculty" -> "professor@example.edu"
+                            "admin" -> "admin@example.edu"
+                            else -> "student@example.edu"
+                        }
+                        sessionManager.saveLoginSession(userType, userNumber, userEmail)
+                        
+                        // Close loading dialog
+                        loadingDialog.dismiss()
+                        
+                        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+                        
+                        // Navigate to appropriate home screen based on user type
+                        when (userType) {
+                            "faculty" -> findNavController().navigate(R.id.action_loginFragment_to_professorHomeFragment)
+                            "admin" -> {
+                                // Navigate to admin home when available
+                                Toast.makeText(context, "Admin dashboard coming soon", Toast.LENGTH_SHORT).show()
+                            }
+                            else -> findNavController().navigate(R.id.action_loginFragment_to_studentHomeFragment)
+                        }
+                    }
+                    .addOnFailureListener { e ->
+                        // Close loading dialog
+                        loadingDialog.dismiss()
+                        Toast.makeText(context, "Login failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                    }
+                
+            } catch (e: Exception) {
+                loadingDialog.dismiss()
+                Toast.makeText(context, "Error during login: ${e.message}", Toast.LENGTH_SHORT).show()
             }
-            .addOnFailureListener { e ->
-                Toast.makeText(context, "Login failed: ${e.message}", Toast.LENGTH_SHORT).show()
-            }
+        }, 2000) // 2 second delay for login process
     }
 
     override fun onDestroyView() {

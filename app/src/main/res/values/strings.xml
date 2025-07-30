@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Attendance System</string>
+    <string name="app_name">Presko</string>
     <string name="app_logo">Presko application logo</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="greetings">Greetings, Iskolar ng Bayan!</string>

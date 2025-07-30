@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+    
+    <item
+        android:id="@+id/nav_calendar"
+        android:icon="@drawable/ic_schedule"
+        android:title="Calendar" />
+    
+    <item
+        android:id="@+id/nav_todo"
+        android:icon="@drawable/ic_tasks"
+        android:title="To do" />
+    
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="Settings" />
+    
+    <item
+        android:id="@+id/nav_about"
+        android:icon="@drawable/ic_about"
+        android:title="About" />
+    
+    <item
+        android:id="@+id/nav_sign_out"
+        android:icon="@drawable/ic_logout"
+        android:title="Sign out" />
+
+</menu> 

@@ -15,10 +15,14 @@
             app:destination="@id/registerFragment" />
         <action
             android:id="@+id/action_loginFragment_to_professorHomeFragment"
-            app:destination="@id/professorHomeFragment" />
+            app:destination="@id/professorHomeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_loginFragment_to_studentHomeFragment"
-            app:destination="@id/studentHomeFragment" />
+            app:destination="@id/studentHomeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_loginFragment_to_resetPasswordFragment"
             app:destination="@id/resetPasswordFragment"

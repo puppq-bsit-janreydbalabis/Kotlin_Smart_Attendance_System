@@ -63,7 +63,7 @@ class AddSubjectFragment : Fragment() {
 
         firestore.collection("subjects").add(subject)
             .addOnSuccessListener {
-                AlertDialog.Builder(requireContext())
+                AlertDialog.Builder(requireContext(), R.style.CustomDialogTheme)
                     .setTitle("Subject Created!")
                     .setMessage("Share this code with your students: $enrollmentCode")
                     .setPositiveButton("OK") { dialog, _ ->

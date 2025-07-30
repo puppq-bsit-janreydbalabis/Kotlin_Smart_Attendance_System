@@ -11,6 +11,22 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // Check if user is already logged in
+        val sessionManager = SessionManager(this)
+        if (sessionManager.isLoggedIn()) {
+            // User is already logged in, navigate directly to appropriate home screen
+            val userType = sessionManager.getUserType() ?: "student"
+            val intent = Intent(this, NavigationActivity::class.java)
+            intent.putExtra("destination", "home")
+            intent.putExtra("userType", userType)
+            intent.putExtra("userId", sessionManager.getUserId())
+            intent.putExtra("userEmail", sessionManager.getUserEmail())
+            startActivity(intent)
+            finish() // Close MainActivity so user can't go back to it
+            return
+        }
+        
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

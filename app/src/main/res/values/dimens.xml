@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Bottom Sheet Dimensions -->
+    <dimen name="bottom_sheet_corner_radius">24dp</dimen>
+    
+    <!-- General UI Dimensions -->
+    <dimen name="card_corner_radius">16dp</dimen>
+    <dimen name="button_corner_radius">8dp</dimen>
+</resources> 

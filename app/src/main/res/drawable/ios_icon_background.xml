@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    
+    <!-- iOS-style rounded corners -->
+    <corners android:radius="12dp" />
+    
+    <!-- iOS-style gradient background -->
+    <gradient
+        android:type="linear"
+        android:angle="135"
+        android:startColor="#007AFF"
+        android:endColor="#0056CC" />
+    
+    <!-- Subtle shadow effect -->
+    <stroke
+        android:width="0.5dp"
+        android:color="#0056CC" />
+
+</shape> 

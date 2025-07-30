@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Shadow -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#40000000" />
+            <size android:width="80dp" android:height="80dp" />
+        </shape>
+    </item>
+    <!-- Profile Circle -->
+    <item android:left="2dp" android:top="2dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="linear"
+                android:angle="45"
+                android:startColor="#2196F3"
+                android:centerColor="#1976D2"
+                android:endColor="#1565C0" />
+            <stroke
+                android:width="3dp"
+                android:color="@color/white" />
+        </shape>
+    </item>
+</layer-list> 
